@@ -1,7 +1,7 @@
 import ConfigParser
 import logging
 from logging.handlers import RotatingFileHandler
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -20,6 +20,7 @@ def status(currstatus):
 
 @app.errorhandler(404)
 def page_not_found(error):
+    app.logger.info("From URL:"+request.path)
     return "Opps, the URL you requested for does not exist",404
 
 def init(app):
