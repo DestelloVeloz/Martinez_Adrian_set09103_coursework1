@@ -6,6 +6,7 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+    background-image: url(../images/theme/background-banner.jpg) repeat;
 }
 
 strong { font-weight: 500; }
