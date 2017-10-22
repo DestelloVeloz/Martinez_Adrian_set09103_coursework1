@@ -15,7 +15,7 @@ header {
   opacity: 0.7;
 }
 
-img {
+.gallery {
   position: static;
   width:300px;
   height:200px;
@@ -43,7 +43,7 @@ h2 {
 }
 .pokonami .sprite {
   position: absolute;
-  top: 25%;
+  top: 100px;
   left: 25%;
   opacity: 0;
 }
