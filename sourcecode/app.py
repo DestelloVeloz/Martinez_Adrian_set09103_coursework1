@@ -6,6 +6,10 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/login/')
+def login():
+    return render_template('sign-up.html')
+
 @app.route('/status/<currstatus>')
 
 def status(currstatus):
