@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    this_route=url_for('.home')
+    this_route=url_for('home')
     return render_template('home.html')
 
 @app.route('/login/')
