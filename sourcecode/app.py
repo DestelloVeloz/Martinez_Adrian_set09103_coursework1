@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    this_route=url_for('.root')
+    this_route=url_for('.home')
     return render_template('home.html')
 
 @app.route('/login/')
@@ -31,6 +31,9 @@ def init(app):
         app.config['ip_address'] = config.get("config", "ip_address")
         app.config['port'] = config.get("config", "port")
         app.config['url'] = config.get("config", "url")
+        app.config['log_file'] = config.get("logging", "name")
+	app.config['log_location'] = config.get("logging", "location")
+	app.config['log_level'] = config.get("logging", "level")
     except:
         print "Could not read configs from: ", config_location
 def logs(app):
