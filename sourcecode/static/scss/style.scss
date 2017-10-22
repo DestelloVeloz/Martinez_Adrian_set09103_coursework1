@@ -1,0 +1,219 @@
+
+$pokemons: caterpie, weedle, beedrill, pidgey, spearow, ekans, sandshrew, nidoran-f, vulpix, jigglypuff, eevee, sentret, ledyba, togepi, flaafy, butterfree, pidgeotto, rattata, pikachu, nidoran-m, clefairy, zubat, oddish, paras, venonat, growlithe, poliwag, abra, bellsprout, geodude, cubone, dratini, spinarak, mareep, marill, hoppip, phanpy, miltank;
+
+
+img {
+    position: absolute;
+    left: 35vw;
+    top: 10px;
+    width: 30vw;
+    z-index: 10000;
+    opacity: 0.2;
+}
+h2 {
+    color: white;
+    left: 36vw;
+    top: 10vw;
+    width: 30vw;
+    z-index: 10001;
+    position: absolute;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.pokonami {
+
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #1D1F20;
+
+    .sprite {
+
+        position: absolute;
+        bottom: 10%;
+        left: 25%;
+        opacity: 0;
+
+        i {
+            
+            background: url("http://files.simey.me/pokonami/sprite.png");
+            background-repeat: no-repeat;
+            display: block;
+            width: 28px;
+            height: 26px;
+
+        }
+
+        quote {
+            
+            position: absolute;
+            background: url("http://files.simey.me/pokonami/sprite.png");
+            background-repeat: no-repeat;
+            display: block;
+            width: 15px;
+            height: 18px;
+            padding: 0;
+            margin: 0;
+            top: -8px;
+            left: 8px;
+       
+            &.love {
+                background-position: -32px -62px;
+            }
+            &.exclamation {
+                background-position: -129px -62px;
+            }
+            &.happy {
+                background-position: -79px -62px;
+            }
+        }
+
+        &.ash {
+            animation: ash-move 20s 1s linear forwards 1;
+            i {
+                background-position: 0 0;
+                animation: ash 0.7s infinite steps(1);
+            }
+            quote {
+                top: -19px;
+                left: 8px;
+                animation: ash-quote 20s 1s linear forwards
+            }
+        }
+
+        &.pikachu {
+            animation: pika-move 20s 1s linear forwards;
+            left: 24%;
+            quote {
+                animation: pika-quote 20s 1s linear forwards;
+            }
+        }
+
+        &.pokemon {
+            margin-bottom: -3px;
+            &.move {
+                animation: poke-move 20s linear forwards;
+                &.togepi {
+                    animation-duration: 40s;
+                    animation-delay: 1s;
+                }
+            }
+            &:after {
+                content: "";
+                width: 10px;
+                height: 2px;
+                position: absolute;
+                z-index: -1;
+                border-radius: 50%;
+                margin-left: -5px;
+                bottom: -2px;
+                left: 50%;
+                background: rgba(0,0,0,0.5);
+                box-shadow: 0 0 2px 1px rgba(0,0,0,0.6);
+            }
+            i {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @each $p in $pokemons {
+            $i: index($pokemons, $p);
+            &.#{$p} {
+                i {
+                    background-position: -($i*30px) 0;
+                    animation: $p 0.25s infinite steps(1);
+                }
+            }
+        }
+        &.still {
+            i {
+                animation: none;
+            }
+        }
+    }
+}
+
+
+@keyframes ash {
+    0% { background-position: 0 0; }
+    25% { background-position: 0 -26px; }
+    50% { background-position: 0 0; }
+    75% { background-position: 0 -52px; }
+}
+
+@keyframes ash-move {
+    0% { opacity: 0; transform: translateX(0); }
+    2% { opacity: 1; }
+    19% { transform: translateX(32vw); animation-timing-function: ease-out; }
+    22% { transform: translateX(35vw); animation-timing-function: steps(1); }
+    27% { transform: translateX(35vw) scaleX(-1); animation-timing-function: steps(1); }
+    34% { transform: translateX(35vw) scaleX(-1) translateY(-2px); animation-timing-function: steps(1); }
+    34.3% { transform: translateX(35vw) scaleX(-1) translateY(0); animation-timing-function: steps(1); }
+    34.6% { transform: translateX(35vw) scaleX(-1) translateY(-2px); animation-timing-function: steps(1); }
+    34.9% { transform: translateX(35vw) scaleX(-1) translateY(0); animation-timing-function: steps(1); }
+    35.2% { transform: translateX(35vw) scaleX(1); animation-timing-function: steps(1); }
+    36% { transform: translateX(35vw) scaleX(1); animation-timing-function: ease-in; }
+    39.7% { opacity: 1; }
+    40% { transform: translateX(50vw); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes ash-quote {
+    0% { opacity: 0; }
+    26% { opacity: 0; }
+    27% { opacity: 1; }
+    36% { opacity: 1 }
+    39.5% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes pika-move {
+    0% { opacity: 0; transform: translateX(0); }
+    2% { opacity: 1; }
+    22% { transform: translateX(37vw); animation-timing-function: ease-out; }
+    25% { transform: translateX(40vw); animation-timing-function: steps(1); }
+    25.1% { transform: translateX(40vw); animation-timing-function: steps(1); }
+    32% { transform: translateX(40vw) scaleX(-1); animation-timing-function: linear; }
+    35% { transform: translateX(40vw) scaleX(-1); animation-timing-function: ease-out; }
+    41% { transform: translateX(33vw) scaleX(-1); }
+    46% { transform: translateX(33vw) scaleX(-1); animation-timing-function: steps(1); }
+    48% { transform: translateX(33vw) scaleX(1); animation-timing-function: ease-in; }
+    54% { opacity: 1; }
+    55% { transform: translateX(50vw); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes pika-quote {
+    0% { opacity: 0; }
+    36% { opacity: 0; }
+    37% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes poke-move {
+    0% { opacity: 0; transform: translateX(0); }
+    40% { opacity: 0; transform: translateX(0); }
+    41% { opacity: 1; }
+    64% { opacity: 1; }
+    66% { opacity: 0; transform: translateX(50vw); }
+    100% { opacity: 0; }
+}
+
+@mixin pokanimate( $name, $x ) {
+    @keyframes #{$name} {
+        0% { background-position: $x 0; }
+        50% { background-position: $x -30px; }
+    }
+}
+
+@each $p in $pokemons {
+    $i: index($pokemons, $p);  
+    @include pokanimate( $p, -($i*30px) );
+}
