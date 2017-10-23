@@ -54,3 +54,25 @@ INFO | 2017-10-22 18:12:36,058 |        app | page_not_found | From URL:/login/a
 INFO | 2017-10-22 18:47:54,934 |        app | page_not_found | From URL:/static/images/collection/Uranium.png
 INFO | 2017-10-22 18:54:20,680 |        app | page_not_found | From URL:/static/images/collection/Insurgence.png
 INFO | 2017-10-22 18:54:21,703 |        app | page_not_found | From URL:/static/images/collection/Uranium.png
+INFO | 2017-10-22 20:28:34,783 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-22 20:54:27,071 |        app | page_not_found | From URL:/login/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 08:12:12,498 |        app | page_not_found | From URL:/static/images/Clandestine.png
+INFO | 2017-10-23 08:12:12,500 |        app | page_not_found | From URL:/static/images/Alchemist.png
+INFO | 2017-10-23 08:12:12,501 |        app | page_not_found | From URL:/static/images/Attack On the Space Station.png
+INFO | 2017-10-23 08:12:12,503 |        app | page_not_found | From URL:/static/images/Celestite.png
+INFO | 2017-10-23 08:12:12,513 |        app | page_not_found | From URL:/static/images/Comet.png
+INFO | 2017-10-23 08:12:12,658 |        app | page_not_found | From URL:/static/images/Epitaph.png
+INFO | 2017-10-23 08:12:13,023 |        app | page_not_found | From URL:/static/images/Ethereal Gates.png
+INFO | 2017-10-23 08:12:13,053 |        app | page_not_found | From URL:/static/images/Fable.png
+INFO | 2017-10-23 08:12:13,220 |        app | page_not_found | From URL:/static/images/Infinite Fusion.png
+INFO | 2017-10-23 08:12:13,221 |        app | page_not_found | From URL:/static/images/Insurgence.gif
+INFO | 2017-10-23 08:12:13,224 |        app | page_not_found | From URL:/static/images/Mint Fantasy.png
+INFO | 2017-10-23 08:12:13,226 |        app | page_not_found | From URL:/static/images/Morality.png
+INFO | 2017-10-23 08:12:13,819 |        app | page_not_found | From URL:/static/images/Nova.png
+INFO | 2017-10-23 08:12:13,823 |        app | page_not_found | From URL:/static/images/Natural Green.png
+INFO | 2017-10-23 08:12:14,319 |        app | page_not_found | From URL:/static/images/Phoenix Rising.png
+INFO | 2017-10-23 08:12:14,339 |        app | page_not_found | From URL:/static/images/Titan.png
+INFO | 2017-10-23 08:12:14,341 |        app | page_not_found | From URL:/static/images/Spectrum.png
+INFO | 2017-10-23 08:12:14,342 |        app | page_not_found | From URL:/static/images/Reborn.png
+INFO | 2017-10-23 08:12:15,874 |        app | page_not_found | From URL:/static/images/Virion.png
+INFO | 2017-10-23 08:12:15,876 |        app | page_not_found | From URL:/static/images/Uranium.jpg

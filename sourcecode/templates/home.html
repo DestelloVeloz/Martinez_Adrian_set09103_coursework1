@@ -52,150 +52,33 @@
   <p>This website is for fans of ...
   <p>More info here....</p>
   <div class="row">
-  <div class="col-sm-2" style="background-color:lavender;">filter</div>
-  <div class="col-sm-10" style="background-color:lavenderblush;">display</div>
-<ul class="products">
-    <li>
-        <img class="gallery" src="../static/images/collection/Alchemist.png">
-        <a href="#" style="color:white">    
-            <h4>North Sky Resort Sogod</h4>
-            <p>Sogod, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Attack On the Space Station.png">
-        <a href="#" style="color:white">   
-            <h4>Rancho Cancio</h4>
-            <p>Busay, Cebu City</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Celestite.png">
-        <a href="#" style="color:white">    
-            <h4>Marriot</h4>
-            <p>Cebu Business Park</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Clandestine.png">
-        <a href="#" style="color:white">    
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Comet.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Epitaph.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Ethereal Gates.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Fable.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Infinite Fusion.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Insurgence.gif">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Mint Fantasy.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Morality.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Natural Green.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Nova.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Phoenix Rising.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Reborn.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Spectrum.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Titan.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Uranium.jpg">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-    <li>
-        <img class="gallery" src="../static/images/collection/Virion.png">
-        <a href="#" style="color:white">
-            <h4>Plantation Bay</h4>
-            <p>Mactan, Cebu</p>
-        </a>
-    </li>
-</ul>
+    <ul class="products">
+    {% for pokemon in pokemonstore %}
+    <li style="color:white">
+      <img class="gallery" src="static/images/collection/{{pokemon[5]|urlencode()}}" alt={{ pokemon[0]}} width="200" height="200">
+          <h4>{{ pokemon[0]}}</h4>
+           <p>
+             Status: {{ pokemon[1] }}
+             
+         </p>
+	 <p>
+             Fakemon: {{ pokemon[2] }}
+
+         </p>
+         <p>
+	   Mega Evolution: {{ pokemon[3] }}
+         </p>
+         <p>
+	    First Release Date: {{ pokemon[4] }}
+
+         </p>
+      </li>
+    {% else %}
+      <em>Unbelievable.  No pokefan to display</em>
+    {% endfor %}
+    </ul>
+
+ </div>
 </body>
 </html>
 </div>

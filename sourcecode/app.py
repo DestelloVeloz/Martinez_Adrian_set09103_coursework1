@@ -1,17 +1,26 @@
-import ConfigParser
-import logging
+import logging,pickle,ConfigParser
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
+app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x1c}s\xe0'
+pokemonstore=[]
 
 @app.route('/')
 def home():
-    this_route=url_for('home')
-    return render_template('home.html')
+    return render_template('home.html',pokemonstore=pokemonstore)
 
-@app.route('/login/')
+@app.route('/login/', methods=['GET','POST'])
 def login():
-    return render_template('sign-up.html')
+	if request.method == 'POST':
+       	 	session['username'] = request.form['username']
+        	return redirect(url_for('home'))
+    	return render_template('sign-up.html')
+
+app.route('/logout')
+def logout():
+# remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('home'))
 
 @app.route('/status/<currstatus>')
 
@@ -46,9 +55,61 @@ def logs(app):
     file_handler.setFormatter(formatter)
     app.logger.setLevel( app.config['log_level'] )
     app.logger.addHandler(file_handler)
+
+def loaddata():
+    global pokemonstore
+    try:       
+        with open('storage.p', 'rb') as pfile:
+            pokemonstore = pickle.load(pfile)
+    except IOError:
+        f= open("storage.p","w+")
+        #store initial data into file from list
+        data1=["Pokemon Alchemist","Completed","No","No","16/09/2016","Alchemist.png"]
+        pokemonstore.append(data1)
+        data2=["Pokemon Attack On the Space Station","Completed","Yes","No","20/08/2017","Attack On the Space Station.png"]
+        pokemonstore.append(data2)
+        data3=["Pokemon Celestite","Developing","Yes","Yes","21/01/2016","Celestite.png"]
+        pokemonstore.append(data3)
+        data4=["Pokemon Clandestine","Demo","No","No","14/04/2017","Clandestine.png"]
+        pokemonstore.append(data4)
+        data5=["Pokemon Comet","Developing","No","No","12/08/2017","Comet.png"]
+        pokemonstore.append(data5)
+        data6=["Pokemon Epitaph","Developing","Yes","No","03/10/2017","Epitaph.png"]
+        pokemonstore.append(data6)
+        data7=["Pokemon Ethereal Gates","Demo","Yes","No","12/04/2015","Ethereal Gates.png"]
+        pokemonstore.append(data7)
+        data8=["Pokemon Fable","Completed","No","No","09/08/2017","Fable.png"]
+        pokemonstore.append(data8)
+        data9=["Pokemon Infinite Fusion","Demo","Yes","No","23/03/2017","Infinite Fusion.png"]
+        pokemonstore.append(data9)
+        data10=["Pokemon Insurgence","Completed","Yes","Yes","20/12/2014","Insurgence.gif"]
+        pokemonstore.append(data10)
+        data11=["Pokemon Mint Fantasy","Demo","No","Yes","30/06/2015","Mint Fantasy.png"]
+        pokemonstore.append(data11)
+        data12=["Pokemon Morality","Developing","Yes","No","12/10/2017","Morality.png"]
+        pokemonstore.append(data12)
+        data13=["Pokemon Natural Green","Demo","No","Yes","21/06/2015","Natural Green.png"]
+        pokemonstore.append(data13)
+        data14=["Pokemon Nova","Demo","Yes","Yes","23/04/2017","Nova.png"]
+        pokemonstore.append(data14)
+        data15=["Pokemon Phoenix Rising","Developing","Yes","Yes","24/06/2015","Phoenix Rising.png"]
+        pokemonstore.append(data15)
+        data16=["Pokemon Reborn","Demo","No","Yes","30/09/2012","Reborn.png"]
+        pokemonstore.append(data16)
+        data17=["Pokemon Spectrum","Demo","Yes","No","11/09/2015","Spectrum.png"]
+        pokemonstore.append(data17)
+        data18=["Pokemon Titan","Demo","Yes","Yes","26/06/2017","Titan.png"]
+        pokemonstore.append(data18)
+        data19=["Pokemon Uranium","Completed","Yes","Yes","17/04/2010","Uranium.jpg"]
+        pokemonstore.append(data19)
+        data20=["Pokemon Virion","Demo","No","Yes","18/11/2016","Virion.png"]
+        pokemonstore.append(data20)
+        with open('storage.p', 'wb') as pfile:
+            pickle.dump(pokemonstore, pfile)
 if __name__ == "__main__":
     init(app)
     logs(app)
+    loaddata()
     app.run(host=app.config['ip_address'], port=int(app.config['port']), debug=app.config['debug'])
     
 
