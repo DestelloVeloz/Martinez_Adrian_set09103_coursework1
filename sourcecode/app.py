@@ -48,10 +48,20 @@ def search():
            return redirect(url_for('home'))
     return redirect(url_for('home'))
 
-@app.route('/status/<currstatus>')
+@app.route('/filter')
+def filterbystatus():
+        pokemonfilter=[]
+        status=request.args.get('status','')
+        
+        if status:
+        #loop through the pokemonstore to find the pokemon with the specified status
+            for pokemon in pokemonstore:
+                if status in pokemon[1].lower():
+                    pokemonfilter.append(pokemon)               
+            return render_template('home.html',pokemonstore=pokemonfilter)
+ 
+        return redirect(url_for('home'))
 
-def status(currstatus):
-    return "Pokemon Status"
 
 @app.errorhandler(404)
 def page_not_found(error):
