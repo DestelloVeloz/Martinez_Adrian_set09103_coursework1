@@ -66,7 +66,7 @@ def filterbystatus():
 @app.errorhandler(404)
 def page_not_found(error):
     app.logger.info("From URL:"+request.path)
-    return "Opps, the URL you requested for does not exist",404
+    return render_template('404.html')
 
 def init(app):
     config = ConfigParser.ConfigParser()

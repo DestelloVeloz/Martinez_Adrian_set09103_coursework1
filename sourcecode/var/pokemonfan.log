@@ -77,3 +77,6 @@ INFO | 2017-10-23 08:12:14,342 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-23 08:12:15,874 |        app | page_not_found | From URL:/static/images/Virion.png
 INFO | 2017-10-23 08:12:15,876 |        app | page_not_found | From URL:/static/images/Uranium.jpg
 INFO | 2017-10-23 11:03:55,384 |        app | page_not_found | From URL:/login/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 17:16:08,787 |        app | page_not_found | From URL:/yes
+INFO | 2017-10-23 17:18:56,481 |        app | page_not_found | From URL:/addpokemon
+INFO | 2017-10-23 17:19:16,560 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
