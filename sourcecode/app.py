@@ -1,6 +1,6 @@
 import logging,pickle,ConfigParser
 from logging.handlers import RotatingFileHandler
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request,redirect,flash
 app = Flask(__name__)
 app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x1c}s\xe0'
 pokemonstore=[]
@@ -9,7 +9,7 @@ pokemonstore=[]
 def home():
     return render_template('home.html',pokemonstore=pokemonstore)
 
-@app.route('/login/', methods=['GET','POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
 	if request.method == 'POST':
        	 	session['username'] = request.form['username']
@@ -20,6 +20,32 @@ app.route('/logout')
 def logout():
 # remove the username from the session if it's there
     session.pop('username', None)
+    return redirect(url_for('home'))
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':       
+        pokemonsearch=[]
+        what=request.form['search']
+        what=what.lower()
+        if what:
+        #loop through the pokemonstore and find any string that contains
+        #what we are searching for and add it to pokemonsearch list
+            for pokemon in pokemonstore:
+                if what in pokemon[0].lower():
+                    pokemonsearch.append(pokemon)
+                elif what in pokemon[1].lower():
+                    pokemonsearch.append(pokemon)
+                elif what in pokemon[2].lower():
+                    pokemonsearch.append(pokemon)
+                elif what in pokemon[3].lower():
+                    pokemonsearch.append(pokemon)
+                elif what in pokemon[4].lower():
+                    pokemonsearch.append(pokemon)
+            return render_template('home.html',pokemonstore=pokemonsearch)
+            
+        else:
+           return redirect(url_for('home'))
     return redirect(url_for('home'))
 
 @app.route('/status/<currstatus>')
