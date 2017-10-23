@@ -81,3 +81,13 @@ INFO | 2017-10-23 17:16:08,787 |        app | page_not_found | From URL:/yes
 INFO | 2017-10-23 17:18:56,481 |        app | page_not_found | From URL:/addpokemon
 INFO | 2017-10-23 17:19:16,560 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
 INFO | 2017-10-23 17:57:35,830 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 19:43:41,441 |        app | page_not_found | From URL:/login/
+INFO | 2017-10-23 19:43:47,530 |        app | page_not_found | From URL:/addpokemon
+INFO | 2017-10-23 19:43:52,302 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-23 19:43:52,464 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 19:43:58,503 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-23 19:43:58,555 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 19:44:01,029 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-23 19:44:01,121 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-23 20:55:07,227 |        app | page_not_found | From URL:/login/
+INFO | 2017-10-23 20:55:09,353 |        app | page_not_found | From URL:/addpokemon
