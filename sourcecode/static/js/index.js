@@ -1,6 +1,6 @@
 (function(){
 
-  var app = angular.module('timesheet', ["ngAnimate"]);
+ /* var app = angular.module('timesheet', ["ngAnimate"]);
 
   app.controller('FormController', function($scope, $timeout) {
 
@@ -68,7 +68,7 @@
 
     };
 
-  });
+  });*/
 
     var pokemons = {
         common: [

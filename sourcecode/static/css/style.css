@@ -353,8 +353,8 @@ footer a:hover, footer a:focus { color: #fff; border-bottom: 1px dotted #fff; }
 }
 @font-face {
   font-family: 'azo_sansbold';
-  src: url('');
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff2') format('woff2'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.svg#azo_sansbold') format('svg');
+  src: url('/static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.eot');
+  src: url('/static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.woff2') format('woff2'), url('/static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.woff') format('woff'), url('/static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.woff') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.svg#azo_sansbold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
