@@ -91,3 +91,11 @@ INFO | 2017-10-23 19:44:01,029 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-23 19:44:01,121 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
 INFO | 2017-10-23 20:55:07,227 |        app | page_not_found | From URL:/login/
 INFO | 2017-10-23 20:55:09,353 |        app | page_not_found | From URL:/addpokemon
+INFO | 2017-10-24 02:27:48,302 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-24 02:27:48,640 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-24 02:28:10,974 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-24 02:28:25,289 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-24 02:28:35,244 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-24 08:48:13,271 |        app | page_not_found | From URL:/login/
+INFO | 2017-10-24 08:48:18,188 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-24 08:48:18,191 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
