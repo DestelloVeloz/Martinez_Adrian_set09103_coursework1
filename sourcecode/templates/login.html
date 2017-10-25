@@ -75,8 +75,6 @@
 	                        			<img src="../static/images/theme/pokeicon.png" style="display:block;"/>
 	                        		</div>
 	                            </div>
-				  {% extends "header.html" %}
-				  {% block content %}
 
 				   {% with messages = get_flashed_messages () %}
  				   {% if messages %}
@@ -103,7 +101,7 @@
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="loginpassword">Password</label>
-				                        	<input type="password" name="loginppassword" placeholder="Password..." class="form-password form-control" id="form-password">
+				                        	<input type="password" name="loginpassword" placeholder="Password..." class="form-password form-control" id="form-password">
 				                        </div>
 				                        <button type="submit" class="btn">Sign in!</button>
 				                    </form>

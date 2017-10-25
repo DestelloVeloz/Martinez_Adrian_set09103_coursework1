@@ -72,7 +72,6 @@ def signup():
             #registration data is fine, add to list
             newuser=[request.form['regusername'],request.form['regemail'],request.form['regpassword'],request.form['regconfirmpassword']]
             pokemonusers.append(newuser)
-            print(pokemonusers)
             with open('user.p', 'wb') as puser:
                 pickle.dump(pokemonusers, puser)#store the user in file
             return redirect(url_for('home'))
@@ -82,7 +81,7 @@ def signup():
 
 
 
-app.route('/logout')
+@app.route('/logout')
 def logout():
 # remove the username from the session if it's there
     session.pop('username', None)
@@ -161,6 +160,15 @@ def logs(app):
 def loaddata():
     global pokemonstore
     global pokemonusers
+#for pokemon app users loading of users   
+    try:
+        with open('user.p', 'rb') as userfile:
+            pokemonusers = pickle.load(userfile)
+    except IOError:
+            f= open("user.p","w+")
+    except EOFError:
+	    pass
+
     try:       
         with open('storage.p', 'rb') as pfile:
             pokemonstore = pickle.load(pfile)
@@ -209,12 +217,6 @@ def loaddata():
         pokemonstore.append(data20)
         with open('storage.p', 'wb') as pfile:
             pickle.dump(pokemonstore, pfile)
-#for pokemon app users loading of users   
-    try:
-        with open("user.p", "rb") as userfile:
-            pokemonusers = pickle.load(userfile)
-    except IOError:
-            f= open("user.p","w+")
         
 if __name__ == "__main__":
     init(app)

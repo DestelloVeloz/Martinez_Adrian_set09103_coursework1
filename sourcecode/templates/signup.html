@@ -11,9 +11,8 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../static/css/form-elements.css">
-        <link rel="stylesheet" href="../static/css/style.css">
-
+        <link rel="stylesheet" href="../static/css/formstyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -34,75 +33,101 @@
 	
 	{% include "header.html" %}
 
-                    <div class="row">
-                        <div class="col-sm-5">
-				<div class="col-sm-5">
-                        	
-                        	<div class="form-box">
-                        		<div class="form-top">
-	                        		<div class="form-top-left">
-	                        			<h3>Sign up now</h3>
-	                            		<p>Fill in the form below to get instant access:</p>
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			<i class="fa fa-pencil"></i>
-	                        		</div>
-	                            </div>
-				   {% with messages = get_flashed_messages () %}
+        <audio autoplay>
+            <source src="http://s2.3lbh.com/s/87EJ97gi.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <!-- Start Main Container -->
+        <div class="main-container">
+            <!-- Start Pokemon Ball Top Part -->
+            <div class="pokemon-top-part"></div>
+            <!-- End Pokemon Ball Top Part -->
+            <!-- Start Main Forms -->
+            <div class="main-forms">
+                <div class="signup-form">
+                     <form role="form" action="{{ url_for('signup')}}"  method="post" class="sign-back">
+
+                        <h1>sign UP</h1>
+                                  <div class="alert alert-warning">
+                                   {% with messages = get_flashed_messages () %}
                                    {% if messages %}
                                    {% for message in messages %}
-                                     <div class="alert alert-warning">
+                                     <div>
                                          {{ message }}
                                     </div>
                                    {% endfor %}
 
                                    {% endif %}
                                    {% endwith %}
-				 {% for message in form.regusername.errors %}
-        				 <div>{{ message }}</div>
-    				 {% endfor %}
+                                 {% for message in form.regusername.errors %}
+                                         <div>{{ message }}</div>
+                                 {% endfor %}
 
-     				 {% for message in form.regemail.errors %}
-        				 <div>{{ message }}</div>
-     				 {% endfor %}
+                                 {% for message in form.regemail.errors %}
+                                         <div>{{ message }}</div>
+                                 {% endfor %}
 
-     				 {% for message in form.regpassword.errors %}
-        				 <div>{{ message }}</div>
-     				 {% endfor %}
+                                 {% for message in form.regpassword.errors %}
+                                         <div>{{ message }}</div>
+                                 {% endfor %}
+                                </div>
+                                 {% for message in form.regconfirmpassword.errors %}
+                                         <div class="alert alert-warning">{{ message }}</div>
+                                 {% endfor %}
 
-     				 {% for message in form.regconfirmpassword.errors %}
-        				 <div>{{ message }}</div>
-     				 {% endfor %}				   
+                        <div class="signup-row">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="regusername" placeholder="USERNAME" class="form-username  form-control" id="form-username">
+                        </div>
+                        <div class="signup-row">
+                            <i class="fa fa-envelope-o"></i>
+                            <input type="text" name="regemail" placeholder="EMAIL" class="form-email form-control" id="form-email">
+                        </div>
+                        <div class="signup-row">
+                            <i class="fa fa-key"></i>
+                            <input type="password" name="regpassword" placeholder="PASSWORD" class="form-password form-control" id="form-password">
+                        </div>
+                        <div class="signup-row">
+                            <i class="fa fa-key"></i>
+                            <input type="password" name="regconfirmpassword" placeholder="CONFIRM PASSWORD" class="form-password form-control" id="form-confirmpassword">
+                        </div>
+                        <div class="signup-row">
+                            <a href="#">
+                                <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="form-bottom">
+                            <div class="remember">
+                                <input type="checkbox" name="" value="">
+                                <span>Remember</span>
+                            </div>
+                            <div class="remember">
+                                <a href="#">Already Have Account ?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Main Forms -->
+            <!-- Start Pokemon Ball Bottom Part -->
+            <div class="pokemon-bottom-part">
+                <div class="white-part"></div>
+                <div class="black-line"></div>
+            </div>
+            <!-- End Pokemon Ball Bottom Part -->
+        </div>
+                      <!--<button type="submit" class="btn">Sign me up!</button>-->
 
-	                            <div class="form-bottom">
-				                    <form role="form" action="{{ url_for('signup')}}"  method="post" class="registration-form">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="regusername">Username</label>
-				                        	<input type="text" name="regusername" placeholder="Username..." class="form-username  form-control" id="form-username">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="regemail">Email</label>
-				                        	<input type="text" name="regemail" placeholder="Email..." class="form-email form-control" id="form-email">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="regpassword">Password</label>
-				                        	<input type="password" name="regpassword" placeholder="Password..." class="form-password form-control" id="form-password">
-				                        </div>
-							<div class="form-group">
-                                                                <label class="sr-only" for="regconfrimpassword">Confirm Password</label>
-                                                                <input type="password" name="regconfirmpassword" placeholder="Confirm Password..." class="form-password form-control" id="form-confirmpassword">
-                                                        </div>
-							<button type="submit" class="btn">Sign me up!</button>
-				                    </form>
-			                    </div>
-                        	</div>
         <!-- Javascript -->
         <script src="../static/js/jquery-1.11.1.min.js"></script>
         <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="../static/js/jquery.backstretch.min.js"></script>
         <script src="../static/js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
+        <script src="https://use.fontawesome.com/7dddae9ad9.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script  src="../static/js/index3.js"></script>
+	<!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
 
