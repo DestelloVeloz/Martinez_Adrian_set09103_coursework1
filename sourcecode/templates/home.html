@@ -1,6 +1,19 @@
 {% extends "header.html" %}
 {% block content %}
 
+      <style>
+html, body { 
+  min-height: 100%; 
+}
+body {
+  background: #fee8b7;
+  background-image: -webkit-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: -moz-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: -o-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+}
+    </style>
+
 <header class="animation">
 
 <img class="logo" src="/static/images/theme/pokemonlogo.png"/>
@@ -54,7 +67,7 @@
   <p>This website is for fans of ...
   <p>More info here....</p>
   <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
-  <link href='../static/css/droid_serif.css' rel='stylesheet' type='text/css'><button class="button  arrow">Add New Game</button>
+  <link href='../static/css/droid_serif.css' rel='stylesheet' type='text/css'><a href="/new_game"><button class="button  arrow">Add New Game</button></a>
   <script src='/static/js/jquery-1.11.1.min.js'></script>
   <div class="row">
     <ul class="products">

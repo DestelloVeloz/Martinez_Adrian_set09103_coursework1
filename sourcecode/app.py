@@ -14,7 +14,7 @@ def login():
 	if request.method == 'POST':
        	 	session['username'] = request.form['username']
         	return redirect(url_for('home'))
-    	return render_template('sign-up.html')
+    	return render_template('login.html')
 
 app.route('/logout')
 def logout():
@@ -47,6 +47,10 @@ def search():
         else:
            return redirect(url_for('home'))
     return redirect(url_for('home'))
+
+@app.route('/new_game')
+def add():
+    return render_template('addgame.html')
 
 @app.route('/filter')
 def filterbystatus():

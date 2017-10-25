@@ -48,7 +48,7 @@ h2 {
 }
 .pokonami .sprite {
   position: absolute;
-  top: 100px;
+  top: 180px;
   left: 25%;
   opacity: 0;
 }
@@ -105,7 +105,7 @@ h2 {
           animation: pika-quote 20s 1s linear forwards;
 }
 .pokonami .sprite.pokemon {
-  margin-bottom: -3px;
+  margin-top: 180px;
 }
 .pokonami .sprite.pokemon.move {
   -webkit-animation: poke-move 20s linear forwards;
@@ -125,7 +125,7 @@ h2 {
   z-index: -1;
   border-radius: 50%;
   margin-left: -5px;
-  bottom: -2px;
+  bottom: 1px;
   left: 50%;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
@@ -1382,3 +1382,15 @@ h2 {
     background-position: -1140px -30px;
   }
 }
+
+html, body {
+  min-height: 100%;
+}
+body {
+  background: #fee8b7;
+  background-image: -webkit-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: -moz-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: -o-radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+  background-image: radial-gradient(top, circle cover, #fff7e6, #fdd681 80%);
+}
+
