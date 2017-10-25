@@ -207,3 +207,8 @@ INFO | 2017-10-25 11:27:45,840 |        app | page_not_found | From URL:/assets/
 INFO | 2017-10-25 11:32:56,973 |        app | page_not_found | From URL:/new_game
 INFO | 2017-10-25 11:33:10,250 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
 INFO | 2017-10-25 11:33:10,253 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-25 11:50:24,993 |        app | page_not_found | From URL:/static/static/images/theme/sign-back.jpg
+INFO | 2017-10-25 12:15:55,613 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-25 12:15:56,512 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-25 12:17:15,326 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-25 12:17:15,587 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
