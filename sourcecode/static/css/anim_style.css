@@ -39,7 +39,7 @@ h2 {
 
 .pokonami {
   display: block;
-  position: fixed;
+  position: absolute;
   z-index: 0;
   left: 0;
   right: 0;

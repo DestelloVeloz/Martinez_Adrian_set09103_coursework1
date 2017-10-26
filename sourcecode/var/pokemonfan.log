@@ -212,3 +212,9 @@ INFO | 2017-10-25 12:15:55,613 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-25 12:15:56,512 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
 INFO | 2017-10-25 12:17:15,326 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
 INFO | 2017-10-25 12:17:15,587 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-25 22:58:07,443 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-25 22:58:07,653 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-25 22:58:13,003 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-25 22:58:13,083 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
+INFO | 2017-10-26 08:36:23,859 |        app | page_not_found | From URL:/static/images/theme/pokeicon.png
+INFO | 2017-10-26 08:36:24,063 |        app | page_not_found | From URL:/assets/img/backgrounds/1.jpg
