@@ -86,13 +86,6 @@
 
  				   {% endif %}
 				   {% endwith %}
-				   {% for message in form.loginusername.errors %}
-        				 <div class="alert alert-warning">{{ message }}</div>
-     				   {% endfor %}
-
-     				  {% for message in form.loginpassword.errors %}
-        				 <div class="alert alert-warning">{{ message }}</div>
-     				  {% endfor %}
 	                            <div class="form-bottom">
 				                    <form role="form" action="{{ url_for('login')}}"  method="post" class="login-form">
 				                    	<div class="form-group">

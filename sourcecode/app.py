@@ -1,34 +1,19 @@
-import logging,pickle,ConfigParser
+import logging,ConfigParser,pickle
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template, url_for, request,redirect,flash,session
-from wtforms import Form, BooleanField, StringField, PasswordField, validators
 app = Flask(__name__)
 app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x1c}s\xe0'
 pokemonstore=[]
 pokemonusers=[]
 
-# class to validate login form
-class LoginForm(Form):
-    loginusername = StringField('loginusername', [validators.DataRequired("Username field is required")])
-    loginpassword = PasswordField('loginpassword', [validators.DataRequired("Password field is required"), validators.Length(min=6, message='Password field should be 6 digit minimum')])
-        
-    
-    
-#class to validate registration form
-class RegisterForm(Form):
-    regusername = StringField('regusername', [validators.DataRequired("Username field is required"),validators.Length(min=6, message='Username field should be 6 digit minimum')])
-    regemail = StringField('regemail', [validators.DataRequired("Email field is required"), validators.Email("Please enter a valid email")])
-    regpassword = PasswordField('regpassword', [validators.DataRequired("Password field is required"), validators.Length(min=6, message='Password field should be 6 digit minimum'),validators.EqualTo('regconfirmpassword', message='Password and Confirm Password field must match')])
-    regconfirmpassword = PasswordField('regconfirmpassword')
 
 @app.route('/addpokemon', methods=['GET', 'POST'])
 def addpokemon():
     global pokemonstore
-    form = RegisterForm(request.form)
     if not session.get('username'):
         return redirect(url_for('login'))
     else:
-        return render_template('addpokemon.html',form=form)
+        return render_template('addpokemon.html')
 
 
 @app.route('/')
@@ -38,29 +23,21 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global pokemonusers
-    form = LoginForm(request.form)
     if request.method == 'POST':
-        
-        if form.validate():
             
             for user in pokemonusers:
                 print(user[0])
                 if request.form['loginusername']==user[0] and request.form['loginpassword']==user[2]:
                     session['username'] = request.form['loginusername']
                     return redirect(url_for('home'))
-            flash("Your username or password is incorrect")
-                    
-        else:
-            
-            return render_template('login.html',form=form)
-    return render_template('login.html',form=form)
+	    flash("Your username or password is incorrect")
+ 
+    return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     global pokemonusers
-    form = RegisterForm(request.form)
     if request.method == 'POST':
-        if form.validate():
             session['username'] = request.form['regusername']
             for pokemon in pokemonusers:
                 if pokemon[0]==request.form['regusername']:
@@ -75,9 +52,7 @@ def signup():
             with open('user.p', 'wb') as puser:
                 pickle.dump(pokemonusers, puser)#store the user in file
             return redirect(url_for('home'))
-        else:
-            render_template('signup.html',form=form)        
-    return render_template('signup.html',form=form)
+    return render_template('signup.html')
 
 
 

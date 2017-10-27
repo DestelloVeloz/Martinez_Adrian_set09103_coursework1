@@ -55,21 +55,6 @@
 
                                    {% endif %}
                                    {% endwith %}
-                                 {% for message in form.regusername.errors %}
-                                         <div>{{ message }}</div>
-                                 {% endfor %}
-
-                                 {% for message in form.regemail.errors %}
-                                         <div>{{ message }}</div>
-                                 {% endfor %}
-
-                                 {% for message in form.regpassword.errors %}
-                                         <div>{{ message }}</div>
-                                 {% endfor %}
-                                </div>
-                                 {% for message in form.regconfirmpassword.errors %}
-                                         <div class="alert alert-warning">{{ message }}</div>
-                                 {% endfor %}
 
                         <div class="signup-row">
                             <i class="fa fa-user"></i>
