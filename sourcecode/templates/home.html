@@ -75,28 +75,28 @@ body {
   <script src='/static/js/jquery-1.11.1.min.js'></script>
   <div class="row">
 	<ul class="products">
-    {% for pokemon in pokemonstore %}
+    {% for pokemon in pokemonfans  %}
     <li style="color:white">
-      <img class="gallery" src="static/images/collection/{{pokemon[5]|urlencode()}}" alt={{ pokemon[0]}} width="200" height="200">
-          <h4>{{ pokemon[0]}}</h4>
+      <img class="gallery" src="static/images/collection/{{pokemon.image|urlencode()}}" alt={{ pokemon.title}} width="200" height="200">
+          <h4>{{ pokemon.title}}</h4>
            <p>
-             Status: {{ pokemon[1] }}
+             Status: {{ pokemon.status }}
              
          </p>
 	 <p>
-             Fakemon: {{ pokemon[2] }}
+             Fakemon: {{ pokemon.fakemon }}
 
          </p>
          <p>
-	   Mega Evolution: {{ pokemon[3] }}
+	   Mega Evolution: {{ pokemon.mega_evolution }}
          </p>
          <p>
-	    First Release Date: {{ pokemon[4] }}
+	    First Release Date: {{ pokemon.first_release }}
 
          </p>
       </li>
     {% else %}
-      <em>Unbelievable.  No pokefan to display</em>
+      <em>Unbelievable.  No pokemonfan to display</em>
     {% endfor %}
     </ul>
 

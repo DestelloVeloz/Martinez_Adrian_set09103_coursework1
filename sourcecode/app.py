@@ -1,15 +1,15 @@
-import logging,ConfigParser,pickle
+import logging,ConfigParser,json
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template, url_for, request,redirect,flash,session
 app = Flask(__name__)
 app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x1c}s\xe0'
-pokemonstore=[]
+pokemonfans=[]
 pokemonusers=[]
 
 
 @app.route('/addpokemon', methods=['GET', 'POST'])
 def addpokemon():
-    global pokemonstore
+    global pokemonfans
     if not session.get('username'):
         return redirect(url_for('login'))
     else:
@@ -18,7 +18,7 @@ def addpokemon():
 
 @app.route('/')
 def home():
-    return render_template('home.html',pokemonstore=pokemonstore)
+    return render_template('home.html',pokemonfans=pokemonfans)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -26,8 +26,8 @@ def login():
     if request.method == 'POST':
             
             for user in pokemonusers:
-                print(user[0])
-                if request.form['loginusername']==user[0] and request.form['loginpassword']==user[2]:
+                
+                if request.form['loginusername']==user["username"] and request.form['loginpassword']==user["password"]:
                     session['username'] = request.form['loginusername']
                     return redirect(url_for('home'))
 	    flash("Your username or password is incorrect")
@@ -40,17 +40,17 @@ def signup():
     if request.method == 'POST':
             session['username'] = request.form['regusername']
             for pokemon in pokemonusers:
-                if pokemon[0]==request.form['regusername']:
+                if pokemon["username"]==request.form['regusername']:
                     flash("Username is already taken")
                     return redirect(url_for('register'))
-                elif pokemon[1]==request.form['regemail']:
+                elif pokemon["email"]==request.form['regemail']:
                     flash("Email address already exist")
                     return redirect(url_for('register'))
             #registration data is fine, add to list
-            newuser=[request.form['regusername'],request.form['regemail'],request.form['regpassword'],request.form['regconfirmpassword']]
+            newuser={"username":request.form['regusername'],"email":request.form['regemail'],"password":request.form['regpassword']}
             pokemonusers.append(newuser)
-            with open('user.p', 'wb') as puser:
-                pickle.dump(pokemonusers, puser)#store the user in file
+            with open('storage.json', 'w') as puser:
+                json.dump(pokemonusers, puser)#store the user in file
             return redirect(url_for('home'))
     return render_template('signup.html')
 
@@ -69,20 +69,20 @@ def search():
         what=request.form['search']
         what=what.lower()
         if what:
-        #loop through the pokemonstore and find any string that contains
+        #loop through the pokemon fans store and find any string that contains
         #what we are searching for and add it to pokemonsearch list
-            for pokemon in pokemonstore:
-                if what in pokemon[0].lower():
+            for pokemon in pokemonfans:
+                if what in pokemon["title"].lower():
                     pokemonsearch.append(pokemon)
-                elif what in pokemon[1].lower():
+                elif what in pokemon["status"].lower():
                     pokemonsearch.append(pokemon)
-                elif what in pokemon[2].lower():
+                elif what in pokemon["fakemon"].lower():
                     pokemonsearch.append(pokemon)
-                elif what in pokemon[3].lower():
+                elif what in pokemon["mega_evolution"].lower():
                     pokemonsearch.append(pokemon)
-                elif what in pokemon[4].lower():
+                elif what in pokemon["first_release"].lower():
                     pokemonsearch.append(pokemon)
-            return render_template('home.html',pokemonstore=pokemonsearch)
+            return render_template('home.html',pokemonfans=pokemonsearch)
             
         else:
            return redirect(url_for('home'))
@@ -95,10 +95,10 @@ def filterbystatus():
         
         if status:
         #loop through the pokemonstore to find the pokemon with the specified status
-            for pokemon in pokemonstore:
-                if status in pokemon[1].lower():
+            for pokemon in pokemonfans:
+                if status in pokemon["status"].lower():
                     pokemonfilter.append(pokemon)               
-            return render_template('home.html',pokemonstore=pokemonfilter)
+            return render_template('home.html',pokemonfans=pokemonfilter)
  
         return redirect(url_for('home'))
 
@@ -133,66 +133,15 @@ def logs(app):
     app.logger.addHandler(file_handler)
 
 def loaddata():
-    global pokemonstore
+    global pokemonfans
     global pokemonusers
-#for pokemon app users loading of users   
-    try:
-        with open('user.p', 'rb') as userfile:
-            pokemonusers = pickle.load(userfile)
-    except IOError:
-            f= open("user.p","w+")
-    except EOFError:
-	    pass
-
     try:       
-        with open('storage.p', 'rb') as pfile:
-            pokemonstore = pickle.load(pfile)
-    except IOError:
-        f= open("storage.p","w+")
-        #store initial data into file from list
-        data1=["Pokemon Alchemist","Completed","No","No","16/09/2016","Alchemist.png"]
-        pokemonstore.append(data1)
-        data2=["Pokemon Attack On the Space Station","Completed","Yes","No","20/08/2017","Attack On the Space Station.png"]
-        pokemonstore.append(data2)
-        data3=["Pokemon Celestite","Developing","Yes","Yes","21/01/2016","Celestite.png"]
-        pokemonstore.append(data3)
-        data4=["Pokemon Clandestine","Demo","No","No","14/04/2017","Clandestine.png"]
-        pokemonstore.append(data4)
-        data5=["Pokemon Comet","Developing","No","No","12/08/2017","Comet.png"]
-        pokemonstore.append(data5)
-        data6=["Pokemon Epitaph","Developing","Yes","No","03/10/2017","Epitaph.png"]
-        pokemonstore.append(data6)
-        data7=["Pokemon Ethereal Gates","Demo","Yes","No","12/04/2015","Ethereal Gates.png"]
-        pokemonstore.append(data7)
-        data8=["Pokemon Fable","Completed","No","No","09/08/2017","Fable.png"]
-        pokemonstore.append(data8)
-        data9=["Pokemon Infinite Fusion","Demo","Yes","No","23/03/2017","Infinite Fusion.png"]
-        pokemonstore.append(data9)
-        data10=["Pokemon Insurgence","Completed","Yes","Yes","20/12/2014","Insurgence.gif"]
-        pokemonstore.append(data10)
-        data11=["Pokemon Mint Fantasy","Demo","No","Yes","30/06/2015","Mint Fantasy.png"]
-        pokemonstore.append(data11)
-        data12=["Pokemon Morality","Developing","Yes","No","12/10/2017","Morality.png"]
-        pokemonstore.append(data12)
-        data13=["Pokemon Natural Green","Demo","No","Yes","21/06/2015","Natural Green.png"]
-        pokemonstore.append(data13)
-        data14=["Pokemon Nova","Demo","Yes","Yes","23/04/2017","Nova.png"]
-        pokemonstore.append(data14)
-        data15=["Pokemon Phoenix Rising","Developing","Yes","Yes","24/06/2015","Phoenix Rising.png"]
-        pokemonstore.append(data15)
-        data16=["Pokemon Reborn","Demo","No","Yes","30/09/2012","Reborn.png"]
-        pokemonstore.append(data16)
-        data17=["Pokemon Spectrum","Demo","Yes","No","11/09/2015","Spectrum.png"]
-        pokemonstore.append(data17)
-        data18=["Pokemon Titan","Demo","Yes","Yes","26/06/2017","Titan.png"]
-        pokemonstore.append(data18)
-        data19=["Pokemon Uranium","Completed","Yes","Yes","17/04/2010","Uranium.jpg"]
-        pokemonstore.append(data19)
-        data20=["Pokemon Virion","Demo","No","Yes","18/11/2016","Virion.png"]
-        pokemonstore.append(data20)
-        with open('storage.p', 'wb') as pfile:
-            pickle.dump(pokemonstore, pfile)
-        
+        with open('storage.json', 'r') as pfile:
+            data= json.load(pfile)
+            pokemonfans=data['pokemonfans']
+            pokemonusers=data['pokemonusers']
+    except:
+        pass
 if __name__ == "__main__":
     init(app)
     logs(app)
