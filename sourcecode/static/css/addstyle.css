@@ -1,14 +1,3 @@
-@font-face {
-    font-family: 'azo_sansbold';
-    src: url('../static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.eot');
-    src: url('../static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.woff2') format('woff2'),
-         url('../static/font-awesome/fonts_2/rui_abreu_-_azosans-bold-webfont.woff') format('woff'),
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 body {
 	font-family: 'azo_sansbold';
 	font-size: 18px;

@@ -21,7 +21,7 @@ h1, h2 {
 	margin-top: 10px;
 	font-size: 38px;
     font-weight: 100;
-    color: #555;
+    color: #282828;
     line-height: 50px;
 }
 
@@ -87,10 +87,10 @@ img { max-width: 100%; }
 }
 
 .top-content .text {
-	color: #fff;
+	color: #282828;
 }
 
-.top-content .text h1 { color: #fff; }
+.top-content .text h1 { color: #282828; }
 
 .top-content .description {
 	margin: 20px 0 10px 0;
