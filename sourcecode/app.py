@@ -6,15 +6,31 @@ app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x
 pokemonfans=[]
 pokemonusers=[]
 
+#Method to validate and check if a title already exist
+@app.route('/validate',methods=['GET', 'POST'])
+def validate():
+    global pokemonfans
+    if request.method == 'POST':
+        for poke in pokemonfans:
+            if request.form['title'].lower()==poke["title"].lower():
+                return "exist"
+    return "notexist"
 
 @app.route('/addpokemon', methods=['GET', 'POST'])
 def addpokemon():
     global pokemonfans
     if not session.get('username'):
-        return redirect(url_for('login'))
-    else:
-        return render_template('addpokemon.html')
-
+        return redirect(url_for('login')) 
+    if request.method == 'POST':
+       
+        f = request.files['imagepokemon']
+        photo = '%s.jpg' % request.form['title']
+        f.save('static/images/collection/%s.jpg' % request.form['title'])
+        pokemon={"title":request.form['title'],"status":request.form['status'],"fakemon":request.form['fakemon'],"mega_evolution":request.form['mega_evolution'],"first_release":request.form['first_release'],"image":photo}
+        pokemonfans.append(pokemon)
+        with open('storage.json', 'w') as pfan:
+                json.dump(pokemonfans, pfan)#store the fan in file
+    return render_template('addpokemon.html')
 
 @app.route('/')
 def home():
@@ -49,7 +65,7 @@ def signup():
             #registration data is fine, add to list
             newuser={"username":request.form['regusername'],"email":request.form['regemail'],"password":request.form['regpassword']}
             pokemonusers.append(newuser)
-            with open('storage.json', 'w') as puser:
+            with open('user.json', 'w') as puser:
                 json.dump(pokemonusers, puser)#store the user in file
             return redirect(url_for('home'))
     return render_template('signup.html')
@@ -137,9 +153,9 @@ def loaddata():
     global pokemonusers
     try:       
         with open('storage.json', 'r') as pfile:
-            data= json.load(pfile)
-            pokemonfans=data['pokemonfans']
-            pokemonusers=data['pokemonusers']
+            pokemonfans= json.load(pfile)
+        with open('user.json', 'r') as puser:
+            pokemonusers= json.load(puser)
     except:
         pass
 if __name__ == "__main__":

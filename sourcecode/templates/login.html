@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../static/css/form-elements.css">
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="../static/css/formstyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,11 +29,19 @@
         <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
 
     </head>
-
+<body>
+  <html>
+    <head>
+        <title></title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </head>
     <body>
 	
 	{% include "header.html" %}
-
+	
+	<div class="main">
+		<img src="/static/images/theme/cubone.png">
+	</div>
         <!-- Top content -->
         <div class="top-content">
         	
@@ -49,9 +57,7 @@
                        		<div class="col-sm-8 col-sm-offset-2 text">
 				 	<h1><strong>User</strong> Login</h1>
 			        </div>
-                                <a href="#">
                                 <img src="../static/images/theme/banner.png" border="0" width="750" height="250" alt="The Pokémon Fangames Showcase" title="The Pokémon Fangames Showcase">
-                                </a>
 			</div>
                         </center>
                 </td>
@@ -62,45 +68,48 @@
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-sm-5">
-                        	
-                        	<div class="form-box">
-	                        	<div class="form-top">
-	                        		<div class="form-top-left">
-	                        			<h3>Login to our site</h3>
-	                            		<p>Enter username and password to log on:</p>
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			<img src="../static/images/theme/pokeicon.png" style="display:block;"/>
-	                        		</div>
-	                            </div>
+               <div class="main-container">
+            <!-- Start Pokemon Ball Top Part -->
+            <div class="pokemon-top-part"></div>
+            <!-- End Pokemon Ball Top Part -->
+            <!-- Start Main Forms -->
+            <div class="main-forms">
 
-				   {% with messages = get_flashed_messages () %}
- 				   {% if messages %}
-   				   {% for message in messages %}
-   				     <div class="alert alert-warning">
-     					 {{ message }}
-   				    </div>
-        			   {% endfor %} 
+			{% with messages = get_flashed_messages () %}
+ 			{% if messages %}
+   			{% for message in messages %}
+   			 <div class="alert alert-warning">
+     				{{ message }}
+   			 </div>
+        		 {% endfor %} 
 
- 				   {% endif %}
-				   {% endwith %}
-	                            <div class="form-bottom">
-				                    <form role="form" action="{{ url_for('login')}}"  method="post" class="login-form">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="loginusername">Username</label>
-				                        	<input type="text" name="loginusername" placeholder="Username..." class="form-username form-control" id="form-username">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="loginpassword">Password</label>
-				                        	<input type="password" name="loginpassword" placeholder="Password..." class="form-password form-control" id="form-password">
-				                        </div>
-				                        <button type="submit" class="btn">Sign in!</button>
-				                    </form>
-			                    </div> 
-		                    </div>
-		                
+ 			{% endif %}
+			{% endwith %}
+                <div class="signup-form">
+                    <form class="sign-back" role="form" action="{{ url_for('login')}}" method="post" class="login-form">
+                        <h1>Enter username and password to log on:</h1>
+                        <div class="signup-row">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="loginusername" value="" class="form-username form-control" id="form-username" placeholder="USERNAME">
+                        </div>
+                        <div class="signup-row">
+                            <i class="fa fa-key"></i>
+                            <input type="password" name="loginpassword" value="" placeholder="PASSWORD" class="form-password form-control" id="form-password">
+                        </div>
+                        <div class="signup-row">
+			<button type="submit" class="btn">Sign in!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Main Forms -->
+            <!-- Start Pokemon Ball Bottom Part -->
+            <div class="pokemon-bottom-part">
+                <div class="white-part"></div>
+                <div class="black-line"></div>
+            </div>
+            <!-- End Pokemon Ball Bottom Part -->
+        </div>   
 		                	<div class="social-login">
 	                        	<h3>...or login with:</h3>
 	                        	<div class=  "social-login-buttons">
@@ -122,7 +131,9 @@
         <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="../static/js/jquery.backstretch.min.js"></script>
         <script src="../static/js/scripts.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script  src="../static/js/index3.js"></script>
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
