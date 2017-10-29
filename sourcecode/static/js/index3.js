@@ -12,14 +12,6 @@ $(document).ready(function(){
 
       // Start
       tl
-      .to(blackLine,0.5,{className:'+=red-circle'})
-      .to(blackLine,0.5,{className:'-=red-circle'})
-      .to(blackLine,0.5,{className:'+=red-circle'})
-      .to(blackLine,0.5,{className:'-=red-circle'})
-      .to(blackLine,0.5,{className:'+=red-circle'})
-      .to(blackLine,0.5,{className:'-=red-circle'})
-      .to(blackLine,0.5,{className:'+=red-circle'})
-      .to(blackLine,0.5,{className:'-=red-circle'})
       .to(ball,0.5,{y:"-70%",ease:Power4.easeOut})
       .to(ball,0.5,{y:"-50%",ease:Bounce.easeOut})
       .to(ball,0.5,{y:"-85%",ease:Power4.easeOut},"+=0.5")

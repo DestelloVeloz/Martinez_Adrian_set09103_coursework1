@@ -3,12 +3,14 @@
 
 <div class="container">
 
-
+<div class="main-form">
+	<img src="/static/images/theme/mudkip.png">
+</div>
 <form class="well form-horizontal" action="{{ url_for('addpokemon')}}" method="post"  id="pokemon_form" enctype="multipart/form-data">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add New Pokemon!</legend>
+<legend>Add New Pokemon Game!</legend>
 
 <!-- Text Input for title-->
 
@@ -49,7 +51,7 @@
   <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
       <select name="fakemon" class="form-control selectpicker" >
-        <option value=" " >Please select fakemon</option>
+        <option value=" " >Are there any fakemon?</option>
         <option>No</option>
         <option>Yes</option>
 
@@ -66,7 +68,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
         <select name="mega_evolution" class="form-control selectpicker" >
-          <option value=" " >Please select mega evolution</option>
+          <option value=" " >Is there any mega evolution?</option>
           <option>No</option>
           <option>Yes</option>
         </select>
@@ -79,7 +81,7 @@
 <div class="form-group">
 <label class="col-md-4 control-label">First Release</label>
 <div class="col-md-4 date">
-<div class="input-group input-append date id="datepicker">
+<div class="input-group input-append date" id="datepicker">
 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 <input  name="first_release" placeholder="DD/MM/YYYY" class="form-control"  type="text">
   </div>
@@ -88,7 +90,7 @@
 
 <div class="form-group">
        <label class="col-md-4 control-label">Image</label>
-       <div class="col-md-4">
+       <div class="col-md-4 picture">
          <div class="input-group">
              <span class="input-group-addon"><i class="glyphicon glyphicon-file-plus"></i></span>
              <input type="file" class="form-control" name="imagepokemon" />

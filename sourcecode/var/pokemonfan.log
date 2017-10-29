@@ -386,3 +386,4 @@ INFO | 2017-10-29 07:18:35,273 |        app | page_not_found | From URL:/favicon
 INFO | 2017-10-29 07:19:52,826 |        app | page_not_found | From URL:/favicon.ico
 INFO | 2017-10-29 12:53:55,248 |        app | page_not_found | From URL:/favicon.ico
 INFO | 2017-10-29 13:03:59,046 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-29 21:16:54,753 |        app | page_not_found | From URL:/static/images/theme/mudkip.png
