@@ -1,138 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+{% extends "header.html" %}
+{% block content %}
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sign Up Page</title>
+<div class="container">
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../static/css/formstyle.css">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../static/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
+<form class="well form-horizontal" id="signup_form" action="{{ url_for('signup')}}" method="post" >
+<fieldset>
 
-    </head>
+<!-- Form Name -->
+<legend>Sign Up!</legend>
 
-    <body>
-	
-	{% include "header.html" %}
-    <html>
-	<head>
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	</head>
-	<body>
-	<div class="main2">
-		<img src="/static/images/theme/vulpix.png">
-	</div>
-      <div class="container">
-        <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
-        <tbody>
-                <tr>
-                <td>
-                        <center>
+<!-- Text Input for Username-->
 
-			<div class="intro-text">
-                       		<div class="col-sm-8 col-sm-offset-2 text">
-				 	<h1><strong>Registration</strong> Form</h1>
-			        </div>
-                        </div>
-                        </center>
-                </td>
-                </tr>
-        </tbody>
-        </table>
-			     </div>
-        <!-- Start Main Container -->
-        <div class="main-container">
-            <!-- Start Pokemon Ball Top Part -->
-            <div class="pokemon-top-part"></div>
-            <!-- End Pokemon Ball Top Part -->
-            <!-- Start Main Forms -->
-            <div class="main-forms">
-                <div class="signup-form">
-                     <form role="form" action="{{ url_for('signup')}}"  method="post" class="sign-back">
+<div class="form-group">
+<label class="col-md-4 control-label">Username</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  id="regusername" name="regusername" placeholder="Username" class="form-control"  type="text">
+  </div>
+</div>
+</div>
 
-                        <h1>sign UP</h1>
-                                  <div class="alert alert-warning">
-                                   {% with messages = get_flashed_messages () %}
-                                   {% if messages %}
-                                   {% for message in messages %}
-                                     <div>
-                                         {{ message }}
-                                    </div>
-                                   {% endfor %}
 
-                                   {% endif %}
-                                   {% endwith %}
-				</div>
-                        <div class="signup-row">
-                            <i class="fa fa-user"></i>
-                            <input type="text" name="regusername" placeholder="USERNAME" class="form-username  form-control" id="form-username">
-                        </div>
-                        <div class="signup-row">
-                            <i class="fa fa-envelope-o"></i>
-                            <input type="text" name="regemail" placeholder="EMAIL" class="form-email form-control" id="form-email">
-                        </div>
-                        <div class="signup-row">
-                            <i class="fa fa-key"></i>
-                            <input type="password" name="regpassword" placeholder="PASSWORD" class="form-password form-control" id="form-password">
-                        </div>
-                        <div class="signup-row">
-                            <i class="fa fa-key"></i>
-                            <input type="password" name="regconfirmpassword" placeholder="CONFIRM PASSWORD" class="form-password form-control" id="form-confirmpassword">
-                        </div>
-                        <div class="signup-row">
-                           <button type="submit" class="btn">REGISTER</button>
-                        </div>
-                        <div class="form-bottom">
-                            <div class="remember">
-                                <input type="checkbox" name="" value="">
-                                <span>Remember</span>
-                            </div>
-                            <div class="remember">
-                                <a href="#">Already Have Account ?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- End Main Forms -->
-            <!-- Start Pokemon Ball Bottom Part -->
-            <div class="pokemon-bottom-part">
-                <div class="white-part"></div>
-                <div class="black-line"></div>
-            </div>
-            <!-- End Pokemon Ball Bottom Part -->
-        </div>
 
-        <!-- Javascript -->
-        <script src="../static/js/jquery-1.11.1.min.js"></script>
-        <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="../static/js/jquery.backstretch.min.js"></script>
-        <script src="../static/js/scripts.js"></script>
-	<!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
-	</body>
-    </html>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-	<script  src="../static/js/index3.js"></script>
-    </body>
 
-</html>
+<!-- Text Input for Email-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Email</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group inputGroupContainer">
+<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+<input  name="regemail" placeholder="Email" class="form-control"  type="email">
+  </div>
+</div>
+</div>
+
+<!-- Text Input for Password-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Password</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group inputGroupContainer">
+<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+<input  name="regpassword" placeholder="Password" class="form-control"  type="password">
+  </div>
+</div>
+</div>
+
+<!-- Text Input for Confirm Password-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Confirm Password</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group inputGroupContainer">
+<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+<input  name="regconfirmpassword" placeholder="Confirm Password" class="form-control"  type="password">
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message"></div>
+
+<!-- Button -->
+<div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-4">
+  <button type="submit" class="btn btn-warning" >Register <span class="glyphicon glyphicon-user-add"></span></button>
+</div>
+</div>
+
+</fieldset>
+</form>
+
+</div><!-- /.container -->
+{% endblock %}
+

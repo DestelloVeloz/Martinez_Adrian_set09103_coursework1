@@ -1,143 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+{% extends "header.html" %}
+{% block content %}
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login Page</title>
+<div class="container">
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../static/css/formstyle.css">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<form class="well form-horizontal" id="login_form" action="{{ url_for('login')}}" method="post" >
+<fieldset>
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../static/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
+<!-- Form Name -->
+<legend>Login!</legend>
 
-    </head>
-<body>
-  <html>
-    <head>
-        <title></title>
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    </head>
-    <body>
-	
-	{% include "header.html" %}
-	
-	<div class="main">
-		<img src="/static/images/theme/cubone.png">
-	</div>
-        <!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-        <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
-        <tbody>
-                <tr>
-                <td>
-                        <center>
+<!-- Text Input for Username-->
 
-			<div class="intro-text">
-                       		<div class="col-sm-8 col-sm-offset-2 text">
-				 	<h1><strong>User</strong> Login</h1>
-			        </div>
-                                <img src="../static/images/theme/banner.png" border="0" width="750" height="250" alt="The Pokémon Fangames Showcase" title="The Pokémon Fangames Showcase">
-			</div>
-                        </center>
-                </td>
-                </tr>
-        </tbody>
-        </table>
-			     </div>
-                        </div>
-                    </div>
-                    
-               <div class="main-container">
-            <!-- Start Pokemon Ball Top Part -->
-            <div class="pokemon-top-part"></div>
-            <!-- End Pokemon Ball Top Part -->
-            <!-- Start Main Forms -->
-            <div class="main-forms">
+<div class="form-group">
+<label class="col-md-4 control-label">Username</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  id="loginusername" name="loginusername" placeholder="Username" class="form-control"  type="text">
+  </div>
+</div>
+</div>
 
-			{% with messages = get_flashed_messages () %}
- 			{% if messages %}
-   			{% for message in messages %}
-   			 <div class="alert alert-warning">
-     				{{ message }}
-   			 </div>
-        		 {% endfor %} 
 
- 			{% endif %}
-			{% endwith %}
-                <div class="signup-form">
-                    <form class="sign-back" role="form" action="{{ url_for('login')}}" method="post" class="login-form">
-                        <h1>Enter username and password to log on:</h1>
-                        <div class="signup-row">
-                            <i class="fa fa-user"></i>
-                            <input type="text" name="loginusername" value="" class="form-username form-control" id="form-username" placeholder="USERNAME">
-                        </div>
-                        <div class="signup-row">
-                            <i class="fa fa-key"></i>
-                            <input type="password" name="loginpassword" value="" placeholder="PASSWORD" class="form-password form-control" id="form-password">
-                        </div>
-                        <div class="signup-row">
-			<button type="submit" class="btn">SIGN IN!</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- End Main Forms -->
-            <!-- Start Pokemon Ball Bottom Part -->
-            <div class="pokemon-bottom-part">
-                <div class="white-part"></div>
-                <div class="black-line"></div>
-            </div>
-            <!-- End Pokemon Ball Bottom Part -->
-        </div>   
-		                	<div class="social-login">
-	                        	<h3>...or login with:</h3>
-	                        	<div class=  "social-login-buttons">
-		                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
-		                        		<i class="fa fa-facebook"></i> Facebook
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-twitter" href="#">
-		                        		<i class="fa fa-twitter"></i> Twitter
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-		                        		<i class="fa fa-google-plus"></i> Google Plus
-		                        	</a>
-	                        	</div>
-	                        </div>
-	                        
-                        </div>
-  <!-- Javascript -->
-        <script src="../static/js/jquery-1.11.1.min.js"></script>
-        <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="../static/js/jquery.backstretch.min.js"></script>
-        <script src="../static/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-	<script  src="../static/js/index3.js"></script>
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
 
-    </body>
 
-</html>
+<!-- Text Input for Password-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Password</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group inputGroupContainer">
+<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+<input  name="loginpassword" placeholder="Password" class="form-control"  type="password">
+  </div>
+</div>
+</div>
+
+
+
+
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message"></div>
+
+<!-- Button -->
+<div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-4">
+  <button type="submit" class="btn btn-warning" >Login<span class="glyphicon glyphicon-user"></span></button>
+</div>
+</div>
+
+</fieldset>
+</form>
+
+</div><!-- /.container -->
+{% endblock %}
+

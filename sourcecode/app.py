@@ -66,15 +66,12 @@ def addpokemon():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global pokemonusers
-    if request.method == 'POST':
-            
-            for user in pokemonusers:
-                
+    if request.method == 'POST':           
+            for user in pokemonusers:               
                 if request.form['loginusername']==user["username"] and request.form['loginpassword']==user["password"]:
                     session['username'] = request.form['loginusername']
-                    return redirect(url_for('home'))
-	    flash("Your username or password is incorrect")
- 
+                    return "correct"
+            return "incorrect"                   
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -84,22 +81,18 @@ def signup():
             session['username'] = request.form['regusername']
             for pokemon in pokemonusers:
                 if pokemon["username"]==request.form['regusername']:
-                    flash("Username is already taken")
-                    return redirect(url_for('register'))
+                    return "usernameexist"
                 elif pokemon["email"]==request.form['regemail']:
-                    flash("Email address already exist")
-                    return redirect(url_for('register'))
+                    return "emailexist"
             #registration data is fine, add to list
             newuser={"username":request.form['regusername'],"email":request.form['regemail'],"password":request.form['regpassword']}
             pokemonusers.append(newuser)
             with open('user.json', 'w') as puser:
                 json.dump(pokemonusers, puser)#store the user in file
             return redirect(url_for('home'))
+               
     return render_template('signup.html')
 
-
-
-@app.route('/logout')
 def logout():
 # remove the username from the session if it's there
     session.pop('username', None)

@@ -423,3 +423,10 @@ INFO | 2017-10-30 13:40:57,971 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-30 13:40:58,510 |        app | page_not_found | From URL:/favicon.ico
 INFO | 2017-10-30 13:41:54,447 |        app | page_not_found | From URL:/static/images/collection/
 INFO | 2017-10-30 13:41:54,975 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 15:00:28,820 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 15:01:26,413 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 16:21:14,449 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 16:22:41,852 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 16:22:58,774 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 16:23:50,375 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 16:23:51,015 |        app | page_not_found | From URL:/favicon.ico
