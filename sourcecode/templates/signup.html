@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="../static/css/formstyle.css">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -34,8 +33,30 @@
 	{% include "header.html" %}
     <html>
 	<head>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	</head>
 	<body>
+	<div class="main2">
+		<img src="/static/images/theme/vulpix.png">
+	</div>
+      <div class="container">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+        <tbody>
+                <tr>
+                <td>
+                        <center>
+
+			<div class="intro-text">
+                       		<div class="col-sm-8 col-sm-offset-2 text">
+				 	<h1><strong>Registration</strong> Form</h1>
+			        </div>
+                        </div>
+                        </center>
+                </td>
+                </tr>
+        </tbody>
+        </table>
+			     </div>
         <!-- Start Main Container -->
         <div class="main-container">
             <!-- Start Pokemon Ball Top Part -->
@@ -58,7 +79,7 @@
 
                                    {% endif %}
                                    {% endwith %}
-
+				</div>
                         <div class="signup-row">
                             <i class="fa fa-user"></i>
                             <input type="text" name="regusername" placeholder="USERNAME" class="form-username  form-control" id="form-username">
@@ -104,7 +125,6 @@
         <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="../static/js/jquery.backstretch.min.js"></script>
         <script src="../static/js/scripts.js"></script>
-       	<script  src="../static/js/index3.js"></script>
 	<!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->

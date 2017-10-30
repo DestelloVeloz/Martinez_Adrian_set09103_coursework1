@@ -412,3 +412,14 @@ INFO | 2017-10-30 05:00:01,839 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-30 05:00:03,126 |        app | page_not_found | From URL:/favicon.ico
 INFO | 2017-10-30 05:01:05,635 |        app | page_not_found | From URL:/static/images/collection/
 INFO | 2017-10-30 05:01:06,819 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 12:37:20,069 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 12:46:53,557 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 12:57:51,288 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 12:57:51,611 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 12:58:08,704 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 13:40:37,657 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 13:40:45,754 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 13:40:57,971 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 13:40:58,510 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-30 13:41:54,447 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 13:41:54,975 |        app | page_not_found | From URL:/favicon.ico
