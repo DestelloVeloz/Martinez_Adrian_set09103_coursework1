@@ -5,36 +5,63 @@ app = Flask(__name__)
 app.secret_key='\xd9\xa8\xf5\xafm\xec\xa2J\x11`\x8fH\xbeO\xeb\x86\x05\xaf"\xfc\x1c}s\xe0'
 pokemonfans=[]
 pokemonusers=[]
-
-#Method to validate and check if a title already exist
-@app.route('/validate',methods=['GET', 'POST'])
-def validate():
-    global pokemonfans
-    if request.method == 'POST':
-        for poke in pokemonfans:
-            if request.form['title'].lower()==poke["title"].lower():
-                return "exist"
-    return "notexist"
-
-@app.route('/addpokemon', methods=['GET', 'POST'])
-def addpokemon():
-    global pokemonfans
-    if not session.get('username'):
-        return redirect(url_for('login')) 
-    if request.method == 'POST':
-       
-        f = request.files['imagepokemon']
-        photo = '%s.jpg' % request.form['title']
-        f.save('static/images/collection/%s.jpg' % request.form['title'])
-        pokemon={"title":request.form['title'],"status":request.form['status'],"fakemon":request.form['fakemon'],"mega_evolution":request.form['mega_evolution'],"first_release":request.form['first_release'],"image":photo}
-        pokemonfans.append(pokemon)
-        with open('storage.json', 'w') as pfan:
-                json.dump(pokemonfans, pfan)#store the fan in file
-    return render_template('addpokemon.html')
+badwords=[]
 
 @app.route('/')
 def home():
     return render_template('home.html',pokemonfans=pokemonfans)
+
+#this checks for bad words before    
+def checkforbadwords(sentence):
+    import re
+    split=re.split('[: ; , \* \n ]',sentence)
+    badword=""
+    for word in split:
+        if word:
+            if word not in badwords:
+                continue
+            else:
+                badword=word
+                break
+    return badword
+
+#this validates the title to ensure that it does not already exist and
+#also calls the checkforbadwords method to check if it does not contain any
+#bad word
+
+def validate():
+        global pokemonfans
+        badword=checkforbadwords(request.form['title'].lower()) # check for badword
+        if not badword:          
+            for poke in pokemonfans:
+                if request.form['title'].lower()==poke["title"].lower():
+                    return "exist"
+            return "notexist"
+        else:
+            #return badword matched
+            return badword
+ 
+    
+
+@app.route('/addpokemon', methods=['GET', 'POST'])
+def addpokemon():
+    global pokemonfans
+    
+    if not session.get('username'):
+        return redirect(url_for('login')) # if not logged in, redirect to login page
+    
+    if request.method == 'POST':
+        validation=validate()
+        if validation=="notexist":         
+            f = request.files['imagepokemon']
+            photo='%s.jpg' % request.form['title']
+            f.save('static/images/collection/%s.jpg' % request.form['title'])
+            pokemon={"title":request.form['title'],"status":request.form['status'],"fakemon":request.form['fakemon'],"mega_evolution":request.form['mega_evolution'],"first_release":request.form['first_release'],"image":photo}
+            pokemonfans.append(pokemon)
+            with open('storage.json', 'w') as pfan:
+                    json.dump(pokemonfans, pfan)#store the fan in file
+        return validation
+    return render_template('addpokemon.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -151,13 +178,18 @@ def logs(app):
 def loaddata():
     global pokemonfans
     global pokemonusers
+    global badwords
     try:       
         with open('storage.json', 'r') as pfile:
             pokemonfans= json.load(pfile)
         with open('user.json', 'r') as puser:
             pokemonusers= json.load(puser)
+        with open('badwords.json', 'r') as pword:
+            badwords= json.load(pword)
     except:
         pass
+
+
 if __name__ == "__main__":
     init(app)
     logs(app)

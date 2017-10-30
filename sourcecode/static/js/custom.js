@@ -69,9 +69,9 @@ $(document).ready(function() {
               }
             }
         })
-        .on('success.form.bv', function(e) {
-        
-           $('#pokemon_form').data('bootstrapValidator').resetForm();
+       .on('success.form.bv', function(e) {
+
+            $('#pokemon_form').data('bootstrapValidator').resetForm();
 
             // Prevent form submission
             e.preventDefault();
@@ -81,34 +81,29 @@ $(document).ready(function() {
 
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
-            $.post("/validate",
-            $form.serialize(),
-            function(data,status){
-                if (data=="exist"){
-                  $('#success_message').html("Pokemon title already exist");
-                  $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                }else{
-                  $('#success_message').html("Success <i class=\"glyphicon glyphicon-thumbs-up\"></i> Your Pokemon is added successfully.");
-                  $('#success_message').slideDown({ opacity: "show" }, "slow"); // Do something ...
-                  // Use Ajax to submit form data
-                  var form_data = new FormData($('#pokemon_form')[0]);
-                  $.ajax({
-                     type : 'POST',
-                     url : $form.attr('action'),
-                     data: form_data,
-                     datatype: 'json',
-                     contentType: false,
-                     processData: false,
-                     success: function(data) {
 
-                      }
-                   });
-                  //$.post($form.attr('action'), $form.serialize(), function(result) {
-                      //console.log(result);
-                //  }, 'html');
+            // Use Ajax to submit form data
+            var form_data = new FormData($('#pokemon_form')[0]);
+            $.ajax({
+               type : 'POST',
+               url : $form.attr('action'),
+               data: form_data,
+               datatype: 'json',
+               contentType: false,
+               processData: false,
+               success: function(data) {
+                 if (data=="exist"){
+                   $('#success_message').html("Title already exist");
+                 }else if (data=="notexist"){
+                   $('#success_message').html("Success <i class=\"glyphicon glyphicon-thumbs-up\"></i> Your Pokemon is added successfully.");
+                 }else{
+                   $('#success_message').html("This word \""+data+"\" is not allowed, please edit your title");
+                 }
+                 $('#success_message').slideDown({ opacity: "show" }, "slow"); // Do something ...
                 }
+             });
+            
 
-            },'text');
-      });
+        });
 });
 
