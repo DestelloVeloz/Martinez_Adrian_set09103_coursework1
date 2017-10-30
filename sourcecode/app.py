@@ -92,7 +92,7 @@ def signup():
             return redirect(url_for('home'))
                
     return render_template('signup.html')
-
+@app.route('/logout')
 def logout():
 # remove the username from the session if it's there
     session.pop('username', None)

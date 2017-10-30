@@ -1,21 +1,22 @@
 {% extends "header.html" %}
 {% block content %}
 
-<div class="container">
-
+<div class="main">
+	<img src="/static/images/theme/cubone.png">
+</div>
+<div class="container" id="signup-form">
 
 <form class="well form-horizontal" id="login_form" action="{{ url_for('login')}}" method="post" >
 <fieldset>
 
 <!-- Form Name -->
-<legend>Login!</legend>
+<h1>Login!</h1>
 
 <!-- Text Input for Username-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Username</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
+<div class="col-md-4 inputGroupContainer" id="align">
+<div class="input-group" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 <input  id="loginusername" name="loginusername" placeholder="Username" class="form-control"  type="text">
   </div>
@@ -28,9 +29,8 @@
 <!-- Text Input for Password-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Password</label>
 <div class="col-md-4 inputGroupContainer">
-<div class="input-group inputGroupContainer">
+<div class="input-group inputGroupContainer" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 <input  name="loginpassword" placeholder="Password" class="form-control"  type="password">
   </div>
@@ -48,13 +48,13 @@
 <div class="form-group">
 <label class="col-md-4 control-label"></label>
 <div class="col-md-4">
-  <button type="submit" class="btn btn-warning" >Login<span class="glyphicon glyphicon-user"></span></button>
+  <button type="submit" class="btn btn-warning" >Login <span class="glyphicon glyphicon-user"></span></button>
 </div>
 </div>
-
 </fieldset>
 </form>
 
 </div><!-- /.container -->
+
 {% endblock %}
 

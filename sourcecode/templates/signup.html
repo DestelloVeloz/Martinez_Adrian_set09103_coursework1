@@ -1,21 +1,23 @@
 {% extends "header.html" %}
 {% block content %}
 
-<div class="container">
+<div class="main2">
+	<img src="/static/images/theme/vulpix.png">
+</div>
 
+<div class="container" id="signup-form">
 
 <form class="well form-horizontal" id="signup_form" action="{{ url_for('signup')}}" method="post" >
 <fieldset>
 
 <!-- Form Name -->
-<legend>Sign Up!</legend>
+<h1>Sign Up!</h1>
 
 <!-- Text Input for Username-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Username</label>
 <div class="col-md-4 inputGroupContainer">
-<div class="input-group">
+<div class="input-group" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 <input  id="regusername" name="regusername" placeholder="Username" class="form-control"  type="text">
   </div>
@@ -28,9 +30,8 @@
 <!-- Text Input for Email-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Email</label>
 <div class="col-md-4 inputGroupContainer">
-<div class="input-group inputGroupContainer">
+<div class="input-group inputGroupContainer" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 <input  name="regemail" placeholder="Email" class="form-control"  type="email">
   </div>
@@ -40,9 +41,8 @@
 <!-- Text Input for Password-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Password</label>
 <div class="col-md-4 inputGroupContainer">
-<div class="input-group inputGroupContainer">
+<div class="input-group inputGroupContainer" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 <input  name="regpassword" placeholder="Password" class="form-control"  type="password">
   </div>
@@ -52,9 +52,8 @@
 <!-- Text Input for Confirm Password-->
 
 <div class="form-group">
-<label class="col-md-4 control-label">Confirm Password</label>
 <div class="col-md-4 inputGroupContainer">
-<div class="input-group inputGroupContainer">
+<div class="input-group inputGroupContainer" id="sign-back">
 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 <input  name="regconfirmpassword" placeholder="Confirm Password" class="form-control"  type="password">
   </div>
