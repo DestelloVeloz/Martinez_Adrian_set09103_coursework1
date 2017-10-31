@@ -539,3 +539,10 @@ INFO | 2017-10-30 23:13:22,115 |        app | page_not_found | From URL:/static/
 INFO | 2017-10-30 23:15:21,099 |        app | page_not_found | From URL:/static/images/collection/
 INFO | 2017-10-30 23:41:26,188 |        app | page_not_found | From URL:/static/images/collection/
 INFO | 2017-10-30 23:41:51,543 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 23:47:21,622 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-30 23:47:25,600 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-31 00:50:16,682 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-31 01:00:54,281 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-31 01:03:12,699 |        app | page_not_found | From URL:/static/images/collection/
+INFO | 2017-10-31 01:03:49,767 |        app | page_not_found | From URL:/favicon.ico
+INFO | 2017-10-31 10:42:09,205 |        app | page_not_found | From URL:/looo
